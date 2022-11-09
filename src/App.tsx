@@ -1,5 +1,11 @@
-import "./App.css";
-import { IonApp, IonButton, setupIonicReact } from '@ionic/react';
+import { IonApp, IonButton, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { Route } from 'react-router-dom'
+import { IonReactRouter } from '@ionic/react-router'
+
+import Home from './pages/Home'
+import Page1 from './pages/Page1'
+import Page2 from './pages/Page2'
+import pageTransition from './helpers/page-transitions';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -24,10 +30,19 @@ setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <main>
-    <IonButton>BUTTON 1</IonButton>
-    <IonButton>BUTTON 2</IonButton>
-    </main>
+    <IonReactRouter>
+      <IonRouterOutlet animation={pageTransition}>
+        <Route path='/' exact>
+          <Home />
+        </Route>
+        <Route path='/page1'>
+          <Page1 />
+        </Route>
+        <Route path='/page2'>
+          <Page2 />
+        </Route>
+      </IonRouterOutlet>
+    </IonReactRouter>
   </IonApp>
 );
 
