@@ -1,5 +1,5 @@
 import "../App.css";
-import { IonApp, IonButton, IonPage, setupIonicReact } from '@ionic/react';
+import { IonButton, IonPage } from '@ionic/react';
 import React from 'react'
 
 const Page2: React.FC = () => {

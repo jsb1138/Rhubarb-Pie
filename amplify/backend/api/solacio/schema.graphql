@@ -1,0 +1,10 @@
+type Song @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  description: String
+  context: String
+  kind: String!
+  filepath: AWSURL
+  art: AWSURL
+}
+ 

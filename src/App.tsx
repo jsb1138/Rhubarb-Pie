@@ -2,10 +2,15 @@ import { IonApp, IonButton, IonRouterOutlet, setupIonicReact } from '@ionic/reac
 import { Route } from 'react-router-dom'
 import { IonReactRouter } from '@ionic/react-router'
 
+import {
+  withAuthenticator,
+} from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+
 import Home from './pages/Home'
 import Page1 from './pages/Page1'
 import Page2 from './pages/Page2'
-import pageTransition from './helpers/page-transitions';
+// import pageTransition from './helpers/page-transitions';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -26,9 +31,10 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+
 setupIonicReact();
 
-const App: React.FC = () => (
+const App: React.FC = ({ signOut, user }: any) => (
   <IonApp>
     <IonReactRouter>
       {/* <IonRouterOutlet animation={pageTransition}> page transition version */}
@@ -44,7 +50,9 @@ const App: React.FC = () => (
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
+    .
+    <IonButton onClick={signOut}>SIGN OUT</IonButton>
   </IonApp>
 );
 
-export default App;
+export default withAuthenticator(App);

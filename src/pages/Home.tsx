@@ -1,6 +1,11 @@
 import "../App.css";
-import { IonApp, IonButton, IonPage, setupIonicReact } from '@ionic/react';
+import { IonButton, IonPage } from '@ionic/react';
 import React from 'react'
+
+import { Amplify } from 'aws-amplify';
+
+import awsExports from '../aws-exports';
+Amplify.configure(awsExports);
 
 const Home: React.FC = () => {
   return (

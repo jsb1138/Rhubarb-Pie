@@ -1,5 +1,5 @@
 import "../App.css";
-import { IonApp, IonButton, IonPage, setupIonicReact } from '@ionic/react';
+import { IonButton, IonPage } from '@ionic/react';
 import React from 'react'
 
 const Page1: React.FC = () => {
@@ -7,6 +7,7 @@ const Page1: React.FC = () => {
     <IonPage>
       <div id="page1">
         <IonButton routerLink='/'>RETURN HOME</IonButton>
+        <IonButton >STREAM AUDIO</IonButton>
       </div>
     </IonPage>
   )

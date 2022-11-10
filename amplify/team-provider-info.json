@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-solacio-dev-153920-authRole",
+      "UnauthRoleArn": "arn:aws:iam::931808517453:role/amplify-solacio-dev-153920-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::931808517453:role/amplify-solacio-dev-153920-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-solacio-dev-153920-deployment",
+      "UnauthRoleName": "amplify-solacio-dev-153920-unauthRole",
+      "StackName": "amplify-solacio-dev-153920",
+      "StackId": "arn:aws:cloudformation:eu-central-1:931808517453:stack/amplify-solacio-dev-153920/7754a480-6105-11ed-9bb9-0afcc0905384",
+      "AmplifyAppId": "d754knvdf13jx"
+    },
+    "categories": {
+      "api": {
+        "solacio": {}
+      },
+      "auth": {
+        "Solacio": {}
+      }
+    }
+  }
+}

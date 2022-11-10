@@ -3,6 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import App from './App';
 
+import { Amplify } from 'aws-amplify';
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
+
 const container = document.getElementById('root');
 const root = createRoot(container!);
 
@@ -14,21 +18,21 @@ window.addEventListener('statusTap', function () {
 // Display content under transparent status bar (Android only)
 StatusBar.setOverlaysWebView({ overlay: true });
 
-const setStatusBarStyleDark = async () => {
-  await StatusBar.setStyle({ style: Style.Dark });
-};
+// const setStatusBarStyleDark = async () => {
+//   await StatusBar.setStyle({ style: Style.Dark });
+// };
 
-const setStatusBarStyleLight = async () => {
-  await StatusBar.setStyle({ style: Style.Light });
-};
+// const setStatusBarStyleLight = async () => {
+//   await StatusBar.setStyle({ style: Style.Light });
+// };
 
-const hideStatusBar = async () => {
-  await StatusBar.hide();
-};
+// const hideStatusBar = async () => {
+//   await StatusBar.hide();
+// };
 
-const showStatusBar = async () => {
-  await StatusBar.show();
-};
+// const showStatusBar = async () => {
+//   await StatusBar.show();
+// };
 
 root.render(
   <React.StrictMode>
