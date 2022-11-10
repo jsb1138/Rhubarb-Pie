@@ -31,7 +31,8 @@ setupIonicReact();
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet animation={pageTransition}>
+      {/* <IonRouterOutlet animation={pageTransition}> page transition version */}
+      <IonRouterOutlet>
         <Route path='/' exact>
           <Home />
         </Route>
