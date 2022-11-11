@@ -22,7 +22,7 @@
       "function": {
         "addUserToDynamoDB": {
           "deploymentBucketName": "amplify-solacio-dev-153920-deployment",
-          "s3Key": "amplify-builds/addUserToDynamoDB-5838322f4967496f3066-build.zip"
+          "s3Key": "amplify-builds/addUserToDynamoDB-4b6b356e4b4747315159-build.zip"
         }
       },
       "api": {
