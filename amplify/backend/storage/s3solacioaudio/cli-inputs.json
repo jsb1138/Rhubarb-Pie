@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3solacioaudio",
+  "bucketName": "solacio-audio",
+  "policyUUID": "6a6510c2",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "READ"
+  ]
+}

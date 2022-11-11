@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import { IonReactRouter } from '@ionic/react-router'
 
 import {
-  withAuthenticator,
+  withAuthenticator
 } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
@@ -51,6 +51,7 @@ const App: React.FC = ({ signOut, user }: any) => (
       </IonRouterOutlet>
     </IonReactRouter>
     .
+    {/* <AmplifySignOut /> */}
     <IonButton onClick={signOut}>SIGN OUT</IonButton>
   </IonApp>
 );

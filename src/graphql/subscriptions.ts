@@ -2,40 +2,34 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateSong = /* GraphQL */ `
-  subscription OnCreateSong($filter: ModelSubscriptionSongFilterInput) {
-    onCreateSong(filter: $filter) {
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
+    onCreateUser(filter: $filter) {
       id
       name
-      description
-      context
-      kind
+      email
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateSong = /* GraphQL */ `
-  subscription OnUpdateSong($filter: ModelSubscriptionSongFilterInput) {
-    onUpdateSong(filter: $filter) {
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
+    onUpdateUser(filter: $filter) {
       id
       name
-      description
-      context
-      kind
+      email
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteSong = /* GraphQL */ `
-  subscription OnDeleteSong($filter: ModelSubscriptionSongFilterInput) {
-    onDeleteSong(filter: $filter) {
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
+    onDeleteUser(filter: $filter) {
       id
       name
-      description
-      context
-      kind
+      email
       createdAt
       updatedAt
     }

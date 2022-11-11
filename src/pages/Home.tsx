@@ -3,11 +3,12 @@ import { IonButton, IonPage } from '@ionic/react';
 import React from 'react'
 
 import { Amplify } from 'aws-amplify';
-
+import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 import awsExports from '../aws-exports';
 Amplify.configure(awsExports);
 
-const Home: React.FC = () => {
+const Home: React.FC = ({ signOut, user }: any) => {
   return (
     <IonPage>
       <main>
@@ -18,5 +19,5 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+export default withAuthenticator(Home)
 

@@ -1,4 +1,3 @@
-/* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
@@ -9,8 +8,9 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       id
-      name
+      username
       email
+      favorites
       createdAt
       updatedAt
     }
@@ -23,8 +23,9 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       id
-      name
+      username
       email
+      favorites
       createdAt
       updatedAt
     }
@@ -37,8 +38,9 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       id
-      name
+      username
       email
+      favorites
       createdAt
       updatedAt
     }

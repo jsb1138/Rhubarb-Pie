@@ -12,11 +12,21 @@
       "AmplifyAppId": "d754knvdf13jx"
     },
     "categories": {
+      "auth": {
+        "Solacio": {},
+        "solacAuth": {}
+      },
+      "storage": {
+        "s3solacioaudio": {}
+      },
+      "function": {
+        "addUserToDynamoDB": {
+          "deploymentBucketName": "amplify-solacio-dev-153920-deployment",
+          "s3Key": "amplify-builds/addUserToDynamoDB-5838322f4967496f3066-build.zip"
+        }
+      },
       "api": {
         "solacio": {}
-      },
-      "auth": {
-        "Solacio": {}
       }
     }
   }
