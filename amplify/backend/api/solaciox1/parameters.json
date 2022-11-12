@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "solaciox1",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authsolacioAuthResource",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
