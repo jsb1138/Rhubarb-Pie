@@ -4,6 +4,13 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/ui-react": "^3.6.0",
+    "@capacitor/android": "4.4.0",
+    "@capacitor/app": "4.1.0",
+    "@capacitor/core": "4.4.0",
+    "@capacitor/haptics": "4.0.1",
+    "@capacitor/keyboard": "4.0.1",
+    "@capacitor/status-bar": "4.0.1",
+    "@ionic/react": "^6.3.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -38,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@capacitor/cli": "4.4.0"
   }
 }

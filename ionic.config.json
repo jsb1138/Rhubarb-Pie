@@ -1,0 +1,7 @@
+{
+  "name": "Solacio-MASTER",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
