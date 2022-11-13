@@ -16,7 +16,7 @@ type User
   favorites: [String]
 }
 
-type Pie @model @auth(rules: [{ allow: public, operations: [read] }]) {
+type Pie @model @auth(rules: [{ allow: private, operations: [read] }]) {
   id: ID!
   type: String!
   title: String!
@@ -25,7 +25,7 @@ type Pie @model @auth(rules: [{ allow: public, operations: [read] }]) {
   updatedAt: String
 }
 
-type Slice @model @auth(rules: [{ allow: public, operations: [read] }]) {
+type Slice @model @auth(rules: [{ allow: private, operations: [read] }]) {
   id: ID!
   path: String!
   title: String!
