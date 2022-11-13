@@ -3,21 +3,26 @@ type User
   @auth(
     rules: [
       { allow: groups, groups: ["Admin"] }
-      { allow: owner, ownerField: "username", operations: [read] }
+      {
+        allow: owner
+        ownerField: "username"
+        operations: [read, create, update]
+      }
     ]
   ) {
   id: ID!
   username: String!
   email: String!
+  favorites: [String]
 }
 
-type Pie
-  @model
-  @auth(rules: [{ allow: owner, ownerField: "username", operations: [read] }]) {
+type Pie @model @auth(rules: [{ allow: public, operations: [read] }]) {
   id: ID!
   type: String!
   title: String!
-  slices: [Slice!]
+  slices: [String!]
+  createdAt: String
+  updatedAt: String
 }
 
 type Slice @model @auth(rules: [{ allow: public, operations: [read] }]) {
@@ -25,6 +30,6 @@ type Slice @model @auth(rules: [{ allow: public, operations: [read] }]) {
   path: String!
   title: String!
   duration: String!
-  createdAt: AWSDate!
-  updatedAt: AWSDate!
+  createdAt: String
+  updatedAt: String
 }

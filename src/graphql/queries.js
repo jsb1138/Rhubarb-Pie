@@ -7,6 +7,7 @@ export const getUser = /* GraphQL */ `
       id
       username
       email
+      favorites
       createdAt
       updatedAt
     }
@@ -23,6 +24,7 @@ export const listUsers = /* GraphQL */ `
         id
         username
         email
+        favorites
         createdAt
         updatedAt
       }
@@ -36,17 +38,9 @@ export const getPie = /* GraphQL */ `
       id
       type
       title
-      slices {
-        id
-        path
-        title
-        duration
-        createdAt
-        updatedAt
-      }
+      slices
       createdAt
       updatedAt
-      username
     }
   }
 `;
@@ -61,17 +55,9 @@ export const listPies = /* GraphQL */ `
         id
         type
         title
-        slices {
-          id
-          path
-          title
-          duration
-          createdAt
-          updatedAt
-        }
+        slices
         createdAt
         updatedAt
-        username
       }
       nextToken
     }

@@ -4,20 +4,50 @@ import "./App.css";
 import { API, graphqlOperation } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import { listSlices } from "./graphql/queries";
+import { getPie, getSlice } from "./graphql/queries";
+import * as queries from "./graphql/queries";
 
-const getUsers = async () => {
+const grabUser = async (userId) => {
   try {
-    console.log("YES");
-    const res = await API.graphql(graphqlOperation(listSlices));
-    const data = res.data.listSlices.items[0].path;
+    console.log("this is the user favorite:", userId.favorites);
+    // const res = await API.graphql(graphqlOperation(getUser, { id: user }));
+    const res = await API.graphql({
+      query: queries.listUsers,
+      // variables: { id: userId },
+      authMode: "AMAZON_COGNITO_USER_POOLS",
+    });
+    const data = res.data;
+    console.log("user: ", data);
+  } catch (err) {
+    console.error("ERROR: ", err);
+  }
+};
+
+const grabPie = async () => {
+  try {
+    const res = await API.graphql(
+      graphqlOperation(getPie, { id: "01_launch_2022" })
+    );
+    const data = res.data;
+    console.log("pie: ", data);
+  } catch (err) {
+    console.error("ERROR: ", err);
+  }
+};
+
+const grabSlice = async () => {
+  try {
+    const res = await API.graphql(graphqlOperation(getSlice, { id: "1R_1" }));
+    const data = res.data;
     console.log("slices: ", data);
   } catch (err) {
     console.error("ERROR: ", err);
   }
 };
 
-function App({ signOut }) {
+function App({ signOut, user }) {
+  console.log("USER-->", user);
+  console.log("USER SUB-->", user.attributes.sub);
   return (
     <div className="App">
       <header className="App-header">
@@ -34,7 +64,9 @@ function App({ signOut }) {
           Learn React
         </a>
       </header>
-      <button onClick={getUsers}>listUsers</button>
+      <button onClick={() => grabUser(user.attributes.sub)}>User</button>
+      <button onClick={grabPie}>Pie</button>
+      <button onClick={grabSlice}>Slice</button>
       <button onClick={signOut}>SIGN OUT</button>
     </div>
   );

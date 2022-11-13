@@ -10,6 +10,7 @@ export const createUser = /* GraphQL */ `
       id
       username
       email
+      favorites
       createdAt
       updatedAt
     }
@@ -24,6 +25,7 @@ export const updateUser = /* GraphQL */ `
       id
       username
       email
+      favorites
       createdAt
       updatedAt
     }
@@ -38,6 +40,7 @@ export const deleteUser = /* GraphQL */ `
       id
       username
       email
+      favorites
       createdAt
       updatedAt
     }
@@ -52,17 +55,9 @@ export const createPie = /* GraphQL */ `
       id
       type
       title
-      slices {
-        id
-        path
-        title
-        duration
-        createdAt
-        updatedAt
-      }
+      slices
       createdAt
       updatedAt
-      username
     }
   }
 `;
@@ -75,17 +70,9 @@ export const updatePie = /* GraphQL */ `
       id
       type
       title
-      slices {
-        id
-        path
-        title
-        duration
-        createdAt
-        updatedAt
-      }
+      slices
       createdAt
       updatedAt
-      username
     }
   }
 `;
@@ -98,17 +85,9 @@ export const deletePie = /* GraphQL */ `
       id
       type
       title
-      slices {
-        id
-        path
-        title
-        duration
-        createdAt
-        updatedAt
-      }
+      slices
       createdAt
       updatedAt
-      username
     }
   }
 `;

@@ -10,6 +10,7 @@ export const onCreateUser = /* GraphQL */ `
       id
       username
       email
+      favorites
       createdAt
       updatedAt
     }
@@ -24,6 +25,7 @@ export const onUpdateUser = /* GraphQL */ `
       id
       username
       email
+      favorites
       createdAt
       updatedAt
     }
@@ -38,77 +40,45 @@ export const onDeleteUser = /* GraphQL */ `
       id
       username
       email
+      favorites
       createdAt
       updatedAt
     }
   }
 `;
 export const onCreatePie = /* GraphQL */ `
-  subscription OnCreatePie(
-    $filter: ModelSubscriptionPieFilterInput
-    $username: String
-  ) {
-    onCreatePie(filter: $filter, username: $username) {
+  subscription OnCreatePie($filter: ModelSubscriptionPieFilterInput) {
+    onCreatePie(filter: $filter) {
       id
       type
       title
-      slices {
-        id
-        path
-        title
-        duration
-        createdAt
-        updatedAt
-      }
+      slices
       createdAt
       updatedAt
-      username
     }
   }
 `;
 export const onUpdatePie = /* GraphQL */ `
-  subscription OnUpdatePie(
-    $filter: ModelSubscriptionPieFilterInput
-    $username: String
-  ) {
-    onUpdatePie(filter: $filter, username: $username) {
+  subscription OnUpdatePie($filter: ModelSubscriptionPieFilterInput) {
+    onUpdatePie(filter: $filter) {
       id
       type
       title
-      slices {
-        id
-        path
-        title
-        duration
-        createdAt
-        updatedAt
-      }
+      slices
       createdAt
       updatedAt
-      username
     }
   }
 `;
 export const onDeletePie = /* GraphQL */ `
-  subscription OnDeletePie(
-    $filter: ModelSubscriptionPieFilterInput
-    $username: String
-  ) {
-    onDeletePie(filter: $filter, username: $username) {
+  subscription OnDeletePie($filter: ModelSubscriptionPieFilterInput) {
+    onDeletePie(filter: $filter) {
       id
       type
       title
-      slices {
-        id
-        path
-        title
-        duration
-        createdAt
-        updatedAt
-      }
+      slices
       createdAt
       updatedAt
-      username
     }
   }
 `;
