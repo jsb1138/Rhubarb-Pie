@@ -22,7 +22,7 @@
       "function": {
         "addNewUserToDB": {
           "deploymentBucketName": "amplify-solaciox1-dev-24706-deployment",
-          "s3Key": "amplify-builds/addNewUserToDB-4d4d526b656d4c317148-build.zip"
+          "s3Key": "amplify-builds/addNewUserToDB-77784954325949632b2b-build.zip"
         }
       }
     }
