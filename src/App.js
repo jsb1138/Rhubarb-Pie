@@ -14,28 +14,36 @@ import Home from "./pages/Home";
 import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
 
+/* Core CSS required for Ionic components to work properly */
+import "@ionic/react/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
+
+/* Optional CSS utils that can be commented out */
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
+
+/* Theme variables */
+import "./theme/variables.css";
+
 setupIonicReact();
 
 function App({ signOut, user }) {
-  const [allPies, setAllPies] = useState([]);
-  const [allSlices, setAllSlices] = useState([]);
-
   const userId = user.attributes.sub;
-
-  // useEffect(() => {
-  //   const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices()];
-  //   Promise.all(dataFetch).then((result) => {
-  //     setAllPies(result[0]);
-  //     setAllSlices(result[1]);
-  //   });
-  // }, []);
 
   return (
     <IonApp>
       <IonReactRouter>
         {/* <IonRouterOutlet animation={pageTransition}> page transition version */}
         <IonRouterOutlet>
-          <Route path="/">
+          <Route path="/" exact>
             <Home userId={userId} />
           </Route>
           <Route path="/page1">

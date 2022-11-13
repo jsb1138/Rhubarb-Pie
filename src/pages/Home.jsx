@@ -41,10 +41,12 @@ const Home = ({ signOut, userId }) => {
           .map((slice) => (
             <SliceItem key={slice.id} slice={slice} />
           ))} */}
-        <button onClick={() => DynamoAPI.grabUser(userId)}>User</button>
+        {/* <button onClick={() => DynamoAPI.grabUser(userId)}>User</button>
         <button onClick={() => console.log("pies:", allPies)}>Pie</button>
         <button onClick={DynamoAPI.grabSlice}>Slice</button>
-        <button onClick={signOut}>SIGN OUT</button>
+        <button onClick={signOut}>SIGN OUT</button> */}
+        <IonButton routerLink='/page1'>PAGE 1</IonButton>
+        <IonButton routerLink='/page2'>PAGE 2</IonButton>
       </main>
       {/* </div> */}
     </IonPage>

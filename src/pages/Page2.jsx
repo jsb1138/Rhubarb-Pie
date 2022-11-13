@@ -1,7 +1,16 @@
+import "../App.css";
+import { IonButton, IonPage } from '@ionic/react';
 import React from 'react'
 
-export default function Page2() {
+const Page2 = () => {
   return (
-    <div>Page2</div>
+    <IonPage>
+      <div id="page2">
+        <IonButton routerLink='/'>RETURN HOME</IonButton>
+      </div>
+    </IonPage>
   )
 }
+
+export default Page2
+
