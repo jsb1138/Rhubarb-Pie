@@ -58,8 +58,6 @@ function App({ signOut, user }) {
     });
   }, []);
 
-  console.log("the PIES", allPies);
-
   const userId = user.attributes.sub;
 
   return (

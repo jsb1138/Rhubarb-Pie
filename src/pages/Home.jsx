@@ -1,6 +1,7 @@
 import "../App.css";
 import { IonButton, IonPage } from '@ionic/react';
 import React, { useEffect, useState } from 'react'
+import { useTrail, animated } from "react-spring";
 
 import { Amplify, API, graphqlOperation } from 'aws-amplify';
 import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
@@ -14,11 +15,17 @@ import Joystick from "../components/Joystick";
 import * as DynamoAPI from "../utils/ApiQueries";
 // import * as queries from "../graphql/queries";
 
-
+const config = { mass: 5, tension: 5000, friction: 200 };
 
 Amplify.configure(awsExports);
 
 const Home = ({ signOut, userId, activePie, setActivePie, allPies, currentUser }) => {
+  const [state, setState] = useState(true);
+  const trail = useTrail(allPies.length, {
+    config,
+    from: { opacity: 0, x: 10 },
+    to: { opacity: state ? 1 : 0, x: state ? 0 : 0 }
+  });
   
   // const [allPies, setAllPies] = useState([]);
   // const [allSlices, setAllSlices] = useState([]);
@@ -41,14 +48,22 @@ const Home = ({ signOut, userId, activePie, setActivePie, allPies, currentUser }
       {/* <div className="App"> */}
       <main>
       {/* <Header currentUser={currentUser}/> */}
-        {allPies.sort((x,y) => x.id - y.id).map((pie) => (
+        {/* {allPies.sort((x,y) => x.id - y.id).map((pie) => (
           <PieItem key={pie.id} pie={pie} allPies={allPies} setActivePie={setActivePie} activePie={activePie}/>
-        ))}
-        {/* {allSlices
-          .filter((slice) => allPies[0].slices.includes(slice.id))
-          .map((slice) => (
-            <SliceItem key={slice.id} slice={slice} />
-          ))} */}
+        ))} */}
+        {trail.map(({ x, ...otherProps }, i) => (
+        <animated.div
+          className="inliner"
+          // className="pie-item"
+          key={`${allPies[i]}x`}
+          style={{
+            ...otherProps,
+            transform: x.to(x => `translate3d(${x}px, 0, 0)`)
+          }}
+        >
+          <PieItem key={`${i}p`} pie={allPies[i]} allPies={allPies} setActivePie={setActivePie} activePie={activePie}/>
+        </animated.div>
+      ))}
         {/* <button onClick={() => DynamoAPI.grabUser(userId)}>User</button>
         <button onClick={() => console.log("pies:", allPies)}>Pie</button>
         <button onClick={DynamoAPI.grabSlice}>Slice</button>
