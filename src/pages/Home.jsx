@@ -10,6 +10,7 @@ import awsExports from '../aws-exports';
 import SliceItem from "../components/SliceItem";
 import PieItem from "../components/PieItem";
 import Header from "../components/Header";
+import Joystick from "../components/Joystick";
 import * as DynamoAPI from "../utils/ApiQueries";
 // import * as queries from "../graphql/queries";
 
@@ -17,11 +18,12 @@ import * as DynamoAPI from "../utils/ApiQueries";
 
 Amplify.configure(awsExports);
 
-const Home = ({ signOut, userId }) => {
+const Home = ({ signOut, userId, activePie, setActivePie }) => {
   
   const [allPies, setAllPies] = useState([]);
   const [allSlices, setAllSlices] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
+  // const [activePie, setActivePie] = useState({});
   
 
   useEffect(() => {
@@ -39,8 +41,8 @@ const Home = ({ signOut, userId }) => {
       {/* <div className="App"> */}
       <main>
       <Header currentUser={currentUser}/>
-        {allPies.sort((x,y)=> x.id - y.id).map((pie) => (
-          <PieItem key={pie.id} pie={pie} allPies={allPies} />
+        {allPies.sort((x,y) => x.id - y.id).map((pie) => (
+          <PieItem key={pie.id} pie={pie} allPies={allPies} setActivePie={setActivePie} activePie={activePie}/>
         ))}
         {/* {allSlices
           .filter((slice) => allPies[0].slices.includes(slice.id))
@@ -51,8 +53,11 @@ const Home = ({ signOut, userId }) => {
         <button onClick={() => console.log("pies:", allPies)}>Pie</button>
         <button onClick={DynamoAPI.grabSlice}>Slice</button>
         <button onClick={signOut}>SIGN OUT</button> */}
-        <IonButton routerLink='/page1'>PAGE 1</IonButton>
-        <IonButton routerLink='/page2'>PAGE 2</IonButton>
+        {/* <IonButton routerLink='/page1'>PAGE 1</IonButton>
+        <IonButton routerLink='/page2'>PAGE 2</IonButton> */}
+        <div id="chest">
+          <Joystick />
+        </div>
       </main>
       {/* </div> */}
     </IonPage>

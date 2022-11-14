@@ -13,6 +13,7 @@ import PieItem from "./components/PieItem";
 import Home from "./pages/Home";
 import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
+import PieView from "./pages/PieView";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -36,6 +37,8 @@ import "./theme/variables.css";
 setupIonicReact();
 
 function App({ signOut, user }) {
+  const [activePie, setActivePie] = useState({});
+
   const userId = user.attributes.sub;
 
   return (
@@ -44,13 +47,20 @@ function App({ signOut, user }) {
         {/* <IonRouterOutlet animation={pageTransition}> page transition version */}
         <IonRouterOutlet>
           <Route path="/" exact>
-            <Home userId={userId} />
+            <Home
+              userId={userId}
+              activePie={activePie}
+              setActivePie={setActivePie}
+            />
           </Route>
           <Route path="/page1">
             <Page1 />
           </Route>
           <Route path="/page2">
             <Page2 />
+          </Route>
+          <Route path="/pie-view">
+            <PieView />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
