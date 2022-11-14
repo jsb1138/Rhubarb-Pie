@@ -7,7 +7,7 @@ export default function PieItem({pie, allPies}) {
 
   if (isHighlighted(pie)) {
   return (
-    <div className="pie-item" id="highlighted" style={{ backgroundImage: `url("${pie.art}")`, backgroundSize: "130%", backgroundPosition: "-15px" }}><h1>{pie.tagline}.<br/><span>{pie.type}</span>.</h1></div>
+    <div className="pie-item" id="highlighted" style={{ backgroundImage: `url("${pie.art}")`, backgroundSize: "130%", backgroundPosition: "-15px" }}><h1>{pie.tagline}.<span>{` ${pie.type}`}</span>.</h1></div>
   )
 } else {
     return (

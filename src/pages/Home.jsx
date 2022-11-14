@@ -39,7 +39,7 @@ const Home = ({ signOut, userId }) => {
       {/* <div className="App"> */}
       <main>
       <Header currentUser={currentUser}/>
-        {allPies.reverse().map((pie) => (
+        {allPies.sort((x,y)=> x.id - y.id).map((pie) => (
           <PieItem key={pie.id} pie={pie} allPies={allPies} />
         ))}
         {/* {allSlices
