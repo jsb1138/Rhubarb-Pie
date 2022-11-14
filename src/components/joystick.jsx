@@ -68,6 +68,7 @@ export default class Joystick extends React.Component {
                   fadeTime: 500,
                   position: { top: "50%", left: "50%" },
                   mode: "static",
+                  
                 }}
                 style={{
                   // outline: "1px dashed red",

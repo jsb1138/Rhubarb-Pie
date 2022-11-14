@@ -18,29 +18,29 @@ import * as DynamoAPI from "../utils/ApiQueries";
 
 Amplify.configure(awsExports);
 
-const Home = ({ signOut, userId, activePie, setActivePie }) => {
+const Home = ({ signOut, userId, activePie, setActivePie, allPies, currentUser }) => {
   
-  const [allPies, setAllPies] = useState([]);
-  const [allSlices, setAllSlices] = useState([]);
-  const [currentUser, setCurrentUser] = useState({});
-  // const [activePie, setActivePie] = useState({});
+  // const [allPies, setAllPies] = useState([]);
+  // const [allSlices, setAllSlices] = useState([]);
+  // const [currentUser, setCurrentUser] = useState({});
+  // // const [activePie, setActivePie] = useState({});
   
 
-  useEffect(() => {
-    const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices(), DynamoAPI.grabUser()];
-    Promise.all(dataFetch).then((result) => {
-      setAllPies(result[0]);
-      setAllSlices(result[1]);
-      setCurrentUser(result[2][0]);
-    });
-  }, []);
+  // useEffect(() => {
+  //   const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices(), DynamoAPI.grabUser()];
+  //   Promise.all(dataFetch).then((result) => {
+  //     setAllPies(result[0]);
+  //     setAllSlices(result[1]);
+  //     setCurrentUser(result[2][0]);
+  //   });
+  // }, []);
 
 // console.log("new c user",currentUser);
   return (
     <IonPage>
       {/* <div className="App"> */}
       <main>
-      <Header currentUser={currentUser}/>
+      {/* <Header currentUser={currentUser}/> */}
         {allPies.sort((x,y) => x.id - y.id).map((pie) => (
           <PieItem key={pie.id} pie={pie} allPies={allPies} setActivePie={setActivePie} activePie={activePie}/>
         ))}

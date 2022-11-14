@@ -1,6 +1,12 @@
 import "./App.css";
 
-import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
+import {
+  IonApp,
+  IonRouterOutlet,
+  setupIonicReact,
+  IonPage,
+  IonHeader,
+} from "@ionic/react";
 import { Route } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
 
@@ -9,6 +15,8 @@ import "@aws-amplify/ui-react/styles.css";
 import { useState, useEffect } from "react";
 import SliceItem from "./components/SliceItem";
 import PieItem from "./components/PieItem";
+import Header from "./components/Header";
+import * as DynamoAPI from "./utils/ApiQueries";
 
 import Home from "./pages/Home";
 import Page1 from "./pages/Page1";
@@ -38,6 +46,19 @@ setupIonicReact();
 
 function App({ signOut, user }) {
   const [activePie, setActivePie] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
+  const [allPies, setAllPies] = useState([]);
+  const [allSlices, setAllSlices] = useState([]);
+
+  useEffect(() => {
+    const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices()];
+    Promise.all(dataFetch).then((result) => {
+      setAllPies(result[0]);
+      setAllSlices(result[1]);
+    });
+  }, []);
+
+  console.log("the PIES", allPies);
 
   const userId = user.attributes.sub;
 
@@ -51,6 +72,8 @@ function App({ signOut, user }) {
               userId={userId}
               activePie={activePie}
               setActivePie={setActivePie}
+              allPies={allPies}
+              currentUser={currentUser}
             />
           </Route>
           <Route path="/page1">
@@ -60,10 +83,15 @@ function App({ signOut, user }) {
             <Page2 />
           </Route>
           <Route path="/pie-view">
-            <PieView />
+            <PieView allSlices={allSlices} allPies={allPies} />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
+      <IonHeader class="ion-no-border">
+        <div id="header">
+          <Header />
+        </div>
+      </IonHeader>
       {/* <div className="App"> */}
       {/* <main>
         {allPies.map((pie) => (
