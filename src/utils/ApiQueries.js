@@ -9,7 +9,7 @@ export const grabUser = async (userId) => {
       authMode: "AMAZON_COGNITO_USER_POOLS",
     });
     const data = res.data.listUsers.items;
-    // console.log("user faves:", data.listUsers.items);
+    console.log("user faves:", data);
     // console.log("DATA", data[0]);
     return data;
   } catch (err) {

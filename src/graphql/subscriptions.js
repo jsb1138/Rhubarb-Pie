@@ -55,6 +55,8 @@ export const onCreatePie = /* GraphQL */ `
       slices
       createdAt
       updatedAt
+      tagline
+      art
     }
   }
 `;
@@ -67,6 +69,8 @@ export const onUpdatePie = /* GraphQL */ `
       slices
       createdAt
       updatedAt
+      tagline
+      art
     }
   }
 `;
@@ -79,6 +83,8 @@ export const onDeletePie = /* GraphQL */ `
       slices
       createdAt
       updatedAt
+      tagline
+      art
     }
   }
 `;

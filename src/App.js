@@ -69,7 +69,6 @@ function App({ signOut, user }) {
         <button onClick={DynamoAPI.grabSlice}>Slice</button>
         <button onClick={signOut}>SIGN OUT</button>
       </main> */}
-      <h1>TEST</h1>
       {/* </div> */}
     </IonApp>
   );

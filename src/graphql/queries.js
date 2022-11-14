@@ -41,6 +41,8 @@ export const getPie = /* GraphQL */ `
       slices
       createdAt
       updatedAt
+      tagline
+      art
     }
   }
 `;
@@ -58,6 +60,8 @@ export const listPies = /* GraphQL */ `
         slices
         createdAt
         updatedAt
+        tagline
+        art
       }
       nextToken
     }

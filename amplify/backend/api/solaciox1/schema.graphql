@@ -23,6 +23,8 @@ type Pie @model @auth(rules: [{ allow: private, operations: [read] }]) {
   slices: [String!]
   createdAt: String
   updatedAt: String
+  tagline: String
+  art: String
 }
 
 type Slice @model @auth(rules: [{ allow: private, operations: [read] }]) {
