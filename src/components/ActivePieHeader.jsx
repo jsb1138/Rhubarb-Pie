@@ -9,7 +9,7 @@ export default function ActivePieHeader({ allPies, activePie }) {
 
   return (
     <div id="current-pie-header">
-      <SimpleButton />
+      <SimpleButton icon={"♥"} />
       <div
         id="current-pie-art"
         style={{
@@ -18,7 +18,7 @@ export default function ActivePieHeader({ allPies, activePie }) {
           backgroundPosition: "-25px",
         }}
       ></div>
-      <SimpleButton />
+      <SimpleButton icon={"•••"} />
     </div>
   );
 }
