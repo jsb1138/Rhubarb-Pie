@@ -21,8 +21,6 @@ import Header from "./components/Header";
 import * as DynamoAPI from "./utils/ApiQueries";
 
 import Home from "./pages/Home";
-import Page1 from "./pages/Page1";
-import Page2 from "./pages/Page2";
 import PieView from "./pages/PieView";
 
 /* Core CSS required for Ionic components to work properly */
@@ -52,7 +50,10 @@ function App({ signOut, user }) {
   const [allPies, setAllPies] = useState([]);
   const [allSlices, setAllSlices] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [joystickData, setJoystickData] = useState({});
+  const [joystickState, setJoystickState] = useState({ data: {} });
+  const [stageHome, setStageHome] = useState(true);
+  const [stagePie, setStagePie] = useState(false);
+  const [selected, setSelected] = useState("");
 
   useEffect(() => {
     const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices()];
@@ -83,13 +84,15 @@ function App({ signOut, user }) {
               setActivePie={setActivePie}
               allPies={allPies}
               isLoading={isLoading}
+              joystickState={joystickState}
+              setJoystickState={setJoystickState}
+              stageHome={stageHome}
+              setStageHome={setStageHome}
+              stagePie={stagePie}
+              setStagePie={setStagePie}
+              selected={selected}
+              setSelected={setSelected}
             />
-          </Route>
-          <Route path="/page1">
-            <Page1 />
-          </Route>
-          <Route path="/page2">
-            <Page2 />
           </Route>
           <Route path="/pie-view">
             <PieView
@@ -100,6 +103,14 @@ function App({ signOut, user }) {
               activePie={activePie}
               setActivePie={setActivePie}
               isLoading={isLoading}
+              joystickState={joystickState}
+              setJoystickState={setJoystickState}
+              stageHome={stageHome}
+              setStageHome={setStageHome}
+              stagePie={stagePie}
+              setStagePie={setStagePie}
+              selected={selected}
+              setSelected={setSelected}
             />
           </Route>
         </IonRouterOutlet>

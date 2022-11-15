@@ -1,6 +1,6 @@
 import "../App.css";
 import { IonButton, IonPage } from "@ionic/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useTrail, animated } from "react-spring";
 
 import { Amplify, API, graphqlOperation } from "aws-amplify";
@@ -20,7 +20,20 @@ const config = { mass: 7, tension: 5000, friction: 200 };
 
 Amplify.configure(awsExports);
 
-const Home = ({ isLoading, activePie, setActivePie, allPies }) => {
+const Home = ({
+  isLoading,
+  activePie,
+  setActivePie,
+  allPies,
+  joystickState,
+  setJoystickState,
+  stageHome,
+  setStageHome,
+  stagePie,
+  setStagePie,
+  selected,
+  setSelected,
+}) => {
   const [state, setState] = useState(true);
   const trail = useTrail(allPies.length, {
     config,
@@ -28,8 +41,14 @@ const Home = ({ isLoading, activePie, setActivePie, allPies }) => {
     to: { opacity: state ? 1 : 0, x: state ? 0 : 0 },
   });
 
-  // console.log("ALL PIES", allPies);
+  useEffect(() => {
+    setStageHome(true);
+    setStagePie(false);
+  }, []);
 
+  useEffect(() => {}, [selected]);
+
+  console.log("slected", selected);
   return (
     <>
       {!isLoading ? (
@@ -54,11 +73,21 @@ const Home = ({ isLoading, activePie, setActivePie, allPies }) => {
                   allPies={allPies}
                   setActivePie={setActivePie}
                   activePie={activePie}
+                  selected={selected}
                 />
               </animated.div>
             ))}
             <div id="chest">
-              <Joystick />
+              <Joystick
+                joystickState={joystickState}
+                setJoystickState={setJoystickState}
+                stageHome={stageHome}
+                setStageHome={setStageHome}
+                stagePie={stagePie}
+                setStagePie={setStagePie}
+                selected={selected}
+                setSelected={setSelected}
+              />
             </div>
           </main>
         </IonPage>

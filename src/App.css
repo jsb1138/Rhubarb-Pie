@@ -105,11 +105,11 @@ header span {
   padding-left: 20px;
   padding-bottom: 10px;
   color: #2f2e30;
-  opacity: 0.80;
+  opacity: 0.20;
   transition: 0.3s;
 }
 
-.pie-item:hover {
+.pie-item-hover {
   opacity: 1;
   height: 94px;
   width: 96%;
@@ -127,11 +127,29 @@ header span {
   font-style: italic;
 }
 
-#highlighted {
+.highlighted {
+
+  background-color: #9acd32;
+  margin: 2px 0 20px 0;
+  height: 90px;
+  width: 95%;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  background: #2c285a;
+  -webkit-box-shadow: 12px 12px 24px #1a1835, -12px -12px 24px #3e387f;
+  box-shadow: 12px 12px 24px #1a1835, -12px -12px 24px #3e387f;
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  color: #2f2e30;
+  opacity: 0.20;
   color: #dcd9ff;
   height: 180px;
   width: 98%;
-  opacity: 0.75;
+  opacity: 0.2;
   -webkit-border-radius: 50px;
   border-radius: 50px;
   object-fit: content;
@@ -141,7 +159,8 @@ header span {
   transition: 0.3s;
 }
 
-#highlighted:hover {
+.highlighted-hover {
+  opacity: 1;
   height: 186px;
   width: 100%;
   margin: 0 0 16px 0;

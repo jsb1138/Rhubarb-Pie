@@ -22,7 +22,7 @@ const config = { mass: 7, tension: 5000, friction: 200 };
 
 Amplify.configure(awsExports);
 
-const Page1 = ({
+const PieView = ({
   activeSlice,
   setActiveSlice,
   activePie,
@@ -30,6 +30,10 @@ const Page1 = ({
   allPies,
   allSlices,
   isLoading,
+  stageHome,
+  setStageHome,
+  stagePie,
+  setStagePie,
 }) => {
   const [state, setState] = useState(true);
   const trail = useTrail(allSlices.length, {
@@ -37,6 +41,11 @@ const Page1 = ({
     from: { opacity: 0, x: 10 },
     to: { opacity: state ? 1 : 0, x: state ? 0 : 0 },
   });
+
+  useEffect(() => {
+    setStageHome(false);
+    setStagePie(true);
+  }, []);
 
   return (
     <>
@@ -79,4 +88,4 @@ const Page1 = ({
   );
 };
 
-export default Page1;
+export default PieView;
