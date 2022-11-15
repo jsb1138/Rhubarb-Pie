@@ -11,7 +11,7 @@ export const grabUser = async (userId) => {
     const data = res.data.listUsers.items;
     // console.log("user faves:", data);
     // console.log("DATA", data[0]);
-    return data;
+    return data[0];
   } catch (err) {
     console.error("ERROR: ", err);
   }
@@ -24,7 +24,6 @@ export const grabPies = async () => {
       authMode: "AMAZON_COGNITO_USER_POOLS",
     });
     const data = await res.data.listPies.items;
-    // setAllPies(data);
     return data;
   } catch (err) {
     console.error("ERROR: ", err);
@@ -38,7 +37,6 @@ export const grabSlice = async () => {
       variables: { id: "1R_5" },
       authMode: "AMAZON_COGNITO_USER_POOLS",
     });
-    // const res = await API.graphql(graphqlOperation(getSlice, { id: "1R_1" }));
     const data = res.data;
     console.log("slice: ", data);
   } catch (err) {

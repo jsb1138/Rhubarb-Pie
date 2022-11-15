@@ -49,6 +49,7 @@ function App({ signOut, user }) {
   const [currentUser, setCurrentUser] = useState({});
   const [allPies, setAllPies] = useState([]);
   const [allSlices, setAllSlices] = useState([]);
+  const user_Name = "";
 
   useEffect(() => {
     const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices()];
@@ -57,6 +58,10 @@ function App({ signOut, user }) {
       setAllSlices(result[1]);
     });
   }, []);
+
+  const userName =
+    String(user.username).charAt(0).toUpperCase() +
+    String(user.username).slice(1, -1);
 
   const userId = user.attributes.sub;
 
@@ -87,25 +92,9 @@ function App({ signOut, user }) {
       </IonReactRouter>
       <IonHeader class="ion-no-border">
         <div id="header">
-          <Header />
+          <Header userName={userName} />
         </div>
       </IonHeader>
-      {/* <div className="App"> */}
-      {/* <main>
-        {allPies.map((pie) => (
-          <PieItem key={pie.id} pie={pie} />
-        ))}
-        {allSlices
-          .filter((slice) => allPies[0].slices.includes(slice.id))
-          .map((slice) => (
-            <SliceItem key={slice.id} slice={slice} />
-          ))}
-        <button onClick={() => DynamoAPI.grabUser(userId)}>User</button>
-        <button onClick={() => console.log("pies:", allPies)}>Pie</button>
-        <button onClick={DynamoAPI.grabSlice}>Slice</button>
-        <button onClick={signOut}>SIGN OUT</button>
-      </main> */}
-      {/* </div> */}
     </IonApp>
   );
 }

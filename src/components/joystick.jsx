@@ -40,12 +40,12 @@ let progress = 0;
 let bgColor;
 let pageLook;
 
-const barStyle = {
-  height: "20px",
-  width: `${progress}%`,
-  backgroundColor: "black",
-  color: "white",
-};
+// const barStyle = {
+//   height: "20px",
+//   width: `${progress}%`,
+//   backgroundColor: "black",
+//   color: "white",
+// };
 
 export default class Joystick extends React.Component {
   state = {
@@ -64,7 +64,8 @@ export default class Joystick extends React.Component {
             <div id="chest">
               <ReactNipple
                 options={{
-                  color: "#ff006f",
+                  // color: "#ff006f",
+                  color: "#bc5fff",
                   fadeTime: 500,
                   position: { top: "50%", left: "50%" },
                   mode: "static",

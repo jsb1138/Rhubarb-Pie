@@ -14,6 +14,7 @@ export default function PieItem({pie, allPies, activePie, setActivePie}) {
     width: "85%",
     display: "flex",
     justifyContent: "center",
+    textDecoration: "none"
   }
 
   if (isHighlighted(pie)) {

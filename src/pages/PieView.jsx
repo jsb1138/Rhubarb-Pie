@@ -30,8 +30,6 @@ const Page1 = ({ signOut, userId, allPies, allSlices }) => {
   //   });
   // }, []);
 
-  console.log("all pies",allPies);
-
   return (
     <IonPage>
       <main>
