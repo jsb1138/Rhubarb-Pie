@@ -286,6 +286,14 @@ box-shadow: 5px 5px 20px #1a1835, -5px -5px 20px #3e387f;
   transition: 0.3s;
 }
 
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: beige; */
+}
+
 #play-btn {
   background-color: #866ff7;
   background: linear-gradient(160deg, #866ff7, #4c4086);
@@ -301,10 +309,47 @@ box-shadow: 5px 5px 20px #1a1835, -5px -5px 20px #3e387f;
   -webkit-box-shadow: 7px 7px 20px #1a1835, -7px -7px 20px #3e387f;
   box-shadow: 7px 7px 20px #1a1835, -7px -7px 20px #3e387f;
   /* background-color: black; */
+  /* background: linear-gradient(160deg, #866ff7, #4c4086); */
 }
 
 #player-btn h2 {
   font-size: 40px;
+}
+
+.play-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding-right: 30px; */
+  /* background-color: yellowgreen; */
+}
+
+.pause-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 13px;
+  padding-bottom: 7px;
+  /* background-color: yellowgreen; */
+}
+
+.countdown1 {
+  position: absolute;
+  left: 107px;
+  bottom: 220px;
+  filter: blur(8px);
+  mix-blend-mode: soft-light;
+  opacity: 0.2;
+  transition: 2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.countdown2 {
+  position: absolute;
+  left: 107px;
+  bottom: 220px;
+  filter: blur(2px);
+  mix-blend-mode: soft-light;
+  opacity: 0.8;
+  transition: 1s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 #play-btn-hover {
