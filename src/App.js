@@ -48,6 +48,7 @@ setupIonicReact();
 
 function App({ signOut, user }) {
   const [activePie, setActivePie] = useState({});
+  const [activeSlice, setActiveSlice] = useState({});
   const [allPies, setAllPies] = useState([]);
   const [allSlices, setAllSlices] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -93,6 +94,10 @@ function App({ signOut, user }) {
             <PieView
               allSlices={allSlices}
               allPies={allPies}
+              activeSlice={activeSlice}
+              setActiveSlice={setActiveSlice}
+              activePie={activePie}
+              setActivePie={setActivePie}
               isLoading={isLoading}
             />
           </Route>

@@ -27,6 +27,9 @@ const Home = ({ isLoading, activePie, setActivePie, allPies }) => {
     from: { opacity: 0, x: 10 },
     to: { opacity: state ? 1 : 0, x: state ? 0 : 0 },
   });
+
+  // console.log("ALL PIES", allPies);
+
   return (
     <>
       {!isLoading ? (

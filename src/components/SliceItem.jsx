@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export default function SliceItem() {
-  return (
-    <div className="pie-item">This is a slice!</div>
-  )
+export default function SliceItem({ slice, allSlices }) {
+  return <div className="slice-item">{slice.title}</div>;
 }

@@ -141,6 +141,42 @@ header span {
   width: 45%;
 }
 
+#current-pie-art {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  object-fit: content;
+  margin: -20px 0 20px 0;
+  /* -webkit-border-radius: 20px;
+  border-radius: 20px; */
+  background: #2c285a;
+  -webkit-box-shadow: 7px 7px 20px #1a1835, -7px -7px 20px #3e387f;
+  box-shadow: 7px 7px 20px #1a1835, -7px -7px 20px #3e387f;
+  background-size: cover;
+}
+
+
+.slice-item {
+  background-color: #9acd32;
+  margin: 0 0 20px 0;
+  height: 60px;
+  width: 90%;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  background: #2c285a;
+  -webkit-box-shadow: 7px 7px 20px #1a1835, -7px -7px 20px #3e387f;
+  box-shadow: 7px 7px 20px #1a1835, -7px -7px 20px #3e387f;
+  font-weight:600;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  color: #9c39ff;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
 #chest {
   display: inline;
   margin: 8px 0 0 0;
@@ -303,6 +339,4 @@ header span {
    opacity: 0.65;
   }
  }
- 
- 
 /* End Loading Animation */

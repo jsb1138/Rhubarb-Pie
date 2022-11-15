@@ -7,38 +7,67 @@ import { withAuthenticator, Button, Heading } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import awsExports from "../aws-exports";
 
+import { useTrail, animated } from "react-spring";
+
 import SliceItem from "../components/SliceItem";
 import PieItem from "../components/PieItem";
 import Header from "../components/Header";
 import Spinner from "../components/Spinner";
+import ActivePieArt from "../components/ActivePieArt";
 import * as DynamoAPI from "../utils/ApiQueries";
 // import * as queries from "../graphql/queries";
 
+const config = { mass: 7, tension: 5000, friction: 200 };
+
 Amplify.configure(awsExports);
 
-const Page1 = ({ signOut, userId, allPies, allSlices, isLoading }) => {
-  // const [allPies, setAllPies] = useState([]);
-  // const [allSlices, setAllSlices] = useState([]);
-
-  // useEffect(() => {
-  //   const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices()];
-  //   Promise.all(dataFetch).then((result) => {
-  //     setAllPies(result[0]);
-  //     setAllSlices(result[1]);
-  //   });
-  // }, []);
+const Page1 = ({
+  activeSlice,
+  setActiveSlice,
+  activePie,
+  setActivePie,
+  allPies,
+  allSlices,
+  isLoading,
+}) => {
+  const [state, setState] = useState(true);
+  const trail = useTrail(allSlices.length, {
+    config,
+    from: { opacity: 0, x: 10 },
+    to: { opacity: state ? 1 : 0, x: state ? 0 : 0 },
+  });
 
   return (
     <>
       {!isLoading ? (
         <IonPage>
           <main>
-            {allSlices
+            <ActivePieArt activePie={activePie} allPies={allPies} />
+            {trail.map(({ x, ...otherProps }, i) => (
+              <animated.div
+                className="inliner"
+                key={allSlices[i].id}
+                style={{
+                  ...otherProps,
+                  transform: x.to((x) => `translate3d(${x}px, 0, 0)`),
+                }}
+              >
+                <SliceItem
+                  key={allSlices[i].id}
+                  slice={allSlices[i]}
+                  allSlices={allSlices}
+                  setActiveSlice={setActiveSlice}
+                  activeSlice={activeSlice}
+                  activePie={activePie}
+                />
+              </animated.div>
+            ))}
+
+            {/* {allSlices
               .filter((slice) => allPies[0].slices.includes(slice.id))
               .map((slice) => (
                 <SliceItem key={slice.id} slice={slice} />
-              ))}
-            <IonButton routerLink="/">PIE VIEW RETURN HOME</IonButton>
+              ))} */}
           </main>
         </IonPage>
       ) : (
