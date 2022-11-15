@@ -1,6 +1,7 @@
 import "../App.css";
 import { IonButton, IonPage } from "@ionic/react";
 import React, { useEffect, useState } from "react";
+import { AudioPlayerProvider } from "react-use-audio-player";
 
 import { Amplify, API, graphqlOperation } from "aws-amplify";
 import { withAuthenticator, Button, Heading } from "@aws-amplify/ui-react";
@@ -58,7 +59,9 @@ const SliceView = ({
         <IonPage>
           <main>
             <ActiveSliceHeader activePie={activePie} allPies={allPies} />
-            <Player />
+            <AudioPlayerProvider>
+              <Player file={"http://www.thefarlife.com/saw3.wav"} />
+            </AudioPlayerProvider>
             <div id="chest">
               <JoystickSlice
                 selected={selected}

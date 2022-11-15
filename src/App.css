@@ -309,7 +309,19 @@ box-shadow: 5px 5px 20px #1a1835, -5px -5px 20px #3e387f;
 
 #play-btn-hover {
   /* background-color: rgb(134 111 247); */
-  background-color: rgb(121, 4, 255);
+  background-color: #7904ff;
+  background: linear-gradient(160deg, #7904ff, #866ff7);
+  margin-top: 50px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  /* background-color: black; */
+}
+
+#play-btn-hover:active {
+  /* background-color: rgb(134 111 247); */
+  background-color: #7904ff;
+  background: linear-gradient(160deg, #7904ff, #866ff7);
   margin-top: 50px;
   border-radius: 50%;
   width: 100px;
