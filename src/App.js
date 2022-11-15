@@ -22,6 +22,7 @@ import * as DynamoAPI from "./utils/ApiQueries";
 
 import Home from "./pages/Home";
 import PieView from "./pages/PieView";
+import SliceView from "./pages/SliceView";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -96,6 +97,25 @@ function App({ signOut, user }) {
           </Route>
           <Route path="/pie-view">
             <PieView
+              allSlices={allSlices}
+              allPies={allPies}
+              activeSlice={activeSlice}
+              setActiveSlice={setActiveSlice}
+              activePie={activePie}
+              setActivePie={setActivePie}
+              isLoading={isLoading}
+              joystickState={joystickState}
+              setJoystickState={setJoystickState}
+              // stageHome={stageHome}
+              // setStageHome={setStageHome}
+              // stagePie={stagePie}
+              // setStagePie={setStagePie}
+              selected={selected}
+              setSelected={setSelected}
+            />
+          </Route>
+          <Route path="/slice-view">
+            <SliceView
               allSlices={allSlices}
               allPies={allPies}
               activeSlice={activeSlice}

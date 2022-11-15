@@ -33,7 +33,7 @@ export default function PieItem({
     <>
       {isHighlighted(pie) ? (
         <Link
-          to="/pie-view"
+          to="/slice-view"
           style={linkStyle}
           onClick={() => {
             setActivePie(pie.id);
