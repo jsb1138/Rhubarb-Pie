@@ -13,6 +13,8 @@ import { IonReactRouter } from "@ionic/react-router";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { useState, useEffect } from "react";
+import { trackPromise } from "react-promise-tracker";
+
 import SliceItem from "./components/SliceItem";
 import PieItem from "./components/PieItem";
 import Header from "./components/Header";
@@ -46,17 +48,19 @@ setupIonicReact();
 
 function App({ signOut, user }) {
   const [activePie, setActivePie] = useState({});
-  const [currentUser, setCurrentUser] = useState({});
   const [allPies, setAllPies] = useState([]);
   const [allSlices, setAllSlices] = useState([]);
-  const user_Name = "";
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices()];
-    Promise.all(dataFetch).then((result) => {
-      setAllPies(result[0]);
-      setAllSlices(result[1]);
-    });
+    setIsLoading(true);
+    Promise.all(dataFetch)
+      .then((result) => {
+        setAllPies(result[0]);
+        setAllSlices(result[1]);
+      })
+      .then((result) => setIsLoading(false));
   }, []);
 
   const userName =
@@ -76,7 +80,7 @@ function App({ signOut, user }) {
               activePie={activePie}
               setActivePie={setActivePie}
               allPies={allPies}
-              currentUser={currentUser}
+              isLoading={isLoading}
             />
           </Route>
           <Route path="/page1">
