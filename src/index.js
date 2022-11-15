@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { StatusBar, Style } from "@capacitor/status-bar";
-// import { usePromiseTracker } from "react-promise-tracker";
 
 import { Amplify } from "aws-amplify";
 import awsExports from "./aws-exports";
@@ -18,15 +17,10 @@ window.addEventListener("statusTap", function () {
 
 // Display content under transparent status bar (Android only)
 StatusBar.setOverlaysWebView({ overlay: true });
-
-// const LoadingIndicator = (props) => {
-//   const { promiseInProgress } = usePromiseTracker();
-//   return promiseInProgress && <h1>async call in progress...</h1>;
-// };
+StatusBar.setStyle({ style: Style.Light });
 
 root.render(
   <React.StrictMode>
     <App />
-    {/* <LoadingIndicator /> */}
   </React.StrictMode>
 );

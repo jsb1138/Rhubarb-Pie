@@ -52,6 +52,7 @@ function App({ signOut, user }) {
   const [allPies, setAllPies] = useState([]);
   const [allSlices, setAllSlices] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [joystickData, setJoystickData] = useState({});
 
   useEffect(() => {
     const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices()];
