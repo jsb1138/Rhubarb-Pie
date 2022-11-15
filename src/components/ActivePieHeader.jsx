@@ -1,7 +1,7 @@
 import React from "react";
 import SimpleButton from "./SimpleButton";
 
-export default function ActivePieHeader({ allPies, activePie }) {
+export default function ActivePieHeader({ allPies, activePie, selected }) {
   let grabPie = allPies.filter((pie) => {
     return pie.id === activePie;
   });

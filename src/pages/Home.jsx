@@ -41,14 +41,13 @@ const Home = ({
     to: { opacity: state ? 1 : 0, x: state ? 0 : 0 },
   });
 
-  useEffect(() => {
-    setStageHome(true);
-    setStagePie(false);
-  }, []);
+  // useEffect(() => {
+  //   setStageHome(true);
+  //   setStagePie(false);
+  // }, []);
 
   useEffect(() => {}, [selected]);
 
-  console.log("slected", selected);
   return (
     <>
       {!isLoading ? (
@@ -77,17 +76,20 @@ const Home = ({
                 />
               </animated.div>
             ))}
-            <div id="chest">
-              <Joystick
-                joystickState={joystickState}
-                setJoystickState={setJoystickState}
-                stageHome={stageHome}
-                setStageHome={setStageHome}
-                stagePie={stagePie}
-                setStagePie={setStagePie}
-                selected={selected}
-                setSelected={setSelected}
-              />
+            <div id="torso">
+              <div id="chest">
+                <Joystick
+                  joystickState={joystickState}
+                  setJoystickState={setJoystickState}
+                  stageHome={stageHome}
+                  setStageHome={setStageHome}
+                  stagePie={stagePie}
+                  setStagePie={setStagePie}
+                  selected={selected}
+                  setSelected={setSelected}
+                  setActivePie={setActivePie}
+                />
+              </div>
             </div>
           </main>
         </IonPage>

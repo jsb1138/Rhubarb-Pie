@@ -51,8 +51,8 @@ function App({ signOut, user }) {
   const [allSlices, setAllSlices] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [joystickState, setJoystickState] = useState({ data: {} });
-  const [stageHome, setStageHome] = useState(true);
-  const [stagePie, setStagePie] = useState(false);
+  // const [stageHome, setStageHome] = useState(true);
+  // const [stagePie, setStagePie] = useState(false);
   const [selected, setSelected] = useState("");
 
   useEffect(() => {
@@ -86,10 +86,10 @@ function App({ signOut, user }) {
               isLoading={isLoading}
               joystickState={joystickState}
               setJoystickState={setJoystickState}
-              stageHome={stageHome}
-              setStageHome={setStageHome}
-              stagePie={stagePie}
-              setStagePie={setStagePie}
+              // stageHome={stageHome}
+              // setStageHome={setStageHome}
+              // stagePie={stagePie}
+              // setStagePie={setStagePie}
               selected={selected}
               setSelected={setSelected}
             />
@@ -105,10 +105,10 @@ function App({ signOut, user }) {
               isLoading={isLoading}
               joystickState={joystickState}
               setJoystickState={setJoystickState}
-              stageHome={stageHome}
-              setStageHome={setStageHome}
-              stagePie={stagePie}
-              setStagePie={setStagePie}
+              // stageHome={stageHome}
+              // setStageHome={setStageHome}
+              // stagePie={stagePie}
+              // setStagePie={setStagePie}
               selected={selected}
               setSelected={setSelected}
             />

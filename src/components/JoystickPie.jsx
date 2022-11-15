@@ -11,6 +11,7 @@ const hapticsImpactLight = async () => {
   await Haptics.impact({ style: ImpactStyle.Light });
 };
 
+// export default class Joystick extends React.Component {
 const Joystick = ({
   joystickState,
   setJoystickState,
@@ -78,10 +79,11 @@ const Joystick = ({
       }
     }
 
-    if (!stageHome && stagePie) {
-      if (distance > 40 && direction && direction.y == "down") {
-        console.log("back???");
-      }
+    if (distance === 50 && direction && direction.x == "left") {
+      setTimeout(() => {
+        hapticsImpactLight();
+        navigate.push("/", "forward");
+      }, 200);
     }
   };
   const navigate = useIonRouter();

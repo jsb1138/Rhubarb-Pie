@@ -105,17 +105,17 @@ header span {
   padding-left: 20px;
   padding-bottom: 10px;
   color: #2f2e30;
-  opacity: 0.20;
-  transition: 0.3s;
+  opacity: 0.75;
+  transition: 0.6s;
 }
 
 .pie-item-hover {
   opacity: 1;
   height: 94px;
   width: 96%;
-  margin: 0 0 16px 0;
+  margin: 0 0 18px 0;
   padding-bottom: 13px;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .pie-item h1 {
@@ -128,7 +128,6 @@ header span {
 }
 
 .highlighted {
-
   background-color: #9acd32;
   margin: 2px 0 20px 0;
   height: 90px;
@@ -144,19 +143,19 @@ header span {
   align-items: flex-end;
   padding-left: 20px;
   padding-bottom: 10px;
+  padding-right: 150px;
   color: #2f2e30;
-  opacity: 0.20;
+  opacity: 0.75;
   color: #dcd9ff;
   height: 180px;
   width: 98%;
-  opacity: 0.2;
   -webkit-border-radius: 50px;
   border-radius: 50px;
   object-fit: content;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  transition: 0.3s;
+  transition: 0.6s;
 }
 
 .highlighted-hover {
@@ -166,7 +165,7 @@ header span {
   margin: 0 0 16px 0;
   padding-bottom: 12px;
   padding-left: 22px;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 #highlighted h1 {
@@ -263,14 +262,26 @@ box-shadow: 5px 5px 20px #1a1835, -5px -5px 20px #3e387f;
   transition: 0.3s;
 }
 
+#torso {
+  /* background-color: #9acd32; */
+  width: 100%;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+}
+
 #chest {
+  margin: 0 auto 0 auto;
   display: inline;
   margin: 8px 0 0 0;
   background-color: #dcd9ff;
   border-radius: 150px;
   background: linear-gradient(145deg, #292453, #221f46);
   box-shadow: 20px 20px 40px #201d42,
-    -20px -20px 40px #2c275a;
+  -20px -20px 40px #2c275a;
 }
 
 /* Start Loading Animation */

@@ -13,7 +13,7 @@ import SliceItem from "../components/SliceItem";
 import PieItem from "../components/PieItem";
 import Header from "../components/Header";
 import Spinner from "../components/Spinner";
-import Joystick from "../components/Joystick";
+import JoystickPie from "../components/JoystickPie";
 import * as DynamoAPI from "../utils/ApiQueries";
 import ActivePieHeader from "../components/ActivePieHeader";
 // import * as queries from "../graphql/queries";
@@ -34,6 +34,10 @@ const PieView = ({
   setStageHome,
   stagePie,
   setStagePie,
+  selected,
+  setSelected,
+  joystickState,
+  setJoystickState,
 }) => {
   const [state, setState] = useState(true);
   const trail = useTrail(allSlices.length, {
@@ -42,10 +46,10 @@ const PieView = ({
     to: { opacity: state ? 1 : 0, x: state ? 0 : 0 },
   });
 
-  useEffect(() => {
-    setStageHome(false);
-    setStagePie(true);
-  }, []);
+  // useEffect(() => {
+  //   setStageHome(false);
+  //   setStagePie(true);
+  // }, []);
 
   return (
     <>
@@ -73,7 +77,12 @@ const PieView = ({
               </animated.div>
             ))}
             <div id="chest">
-              <Joystick />
+              <JoystickPie
+                selected={selected}
+                setSelected={setSelected}
+                joystickState={joystickState}
+                setJoystickState={setJoystickState}
+              />
             </div>
           </main>
         </IonPage>
