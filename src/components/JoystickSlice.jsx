@@ -94,84 +94,26 @@ const Joystick = ({
         }, 50);
       }
     }
-    // 4
-    if (
-      distance >= 25 &&
-      distance <= 32 &&
-      direction &&
-      direction.y === "up" &&
-      angle.degree > 20 &&
-      angle.degree < 160
-    ) {
-      setSelected("1R_4");
-      if (thumb.pressure > 11.55) {
-        hapticsImpactLight();
-        setActiveSlice(selected);
-        setTimeout(() => {
-          // setStageHome(false);
-          navigate.push("/slice-view", "forward");
-        }, 50);
-      }
-    }
 
-    // 5
-    if (
-      distance >= 33 &&
-      distance <= 40 &&
-      direction &&
-      direction.y === "up" &&
-      angle.degree > 20 &&
-      angle.degree < 160
-    ) {
-      setSelected("1R_2");
-      if (thumb.pressure > 11.55) {
-        hapticsImpactLight();
-        setActiveSlice(selected);
-        setTimeout(() => {
-          // setStageHome(false);
-          navigate.push("/slice-view", "forward");
-        }, 50);
-      }
-    }
-
-    // 6
-    if (
-      distance >= 41 &&
-      distance <= 49 &&
-      direction &&
-      direction.y === "up" &&
-      angle.degree > 20 &&
-      angle.degree < 160
-    ) {
-      setSelected("");
-      if (thumb.pressure > 11.55) {
-        hapticsImpactLight();
-        setActiveSlice(selected);
-        setTimeout(() => {
-          // setStageHome(false);
-          navigate.push("/slice-view", "forward");
-        }, 50);
-      }
-    }
-
-    // 7
-    if (
-      distance == 50 &&
-      direction &&
-      direction.y === "up" &&
-      angle.degree > 20 &&
-      angle.degree < 160
-    ) {
-      setSelected("");
-      if (thumb.pressure > 11.55) {
-        hapticsImpactLight();
-        setActiveSlice(selected);
-        setTimeout(() => {
-          // setStageHome(false);
-          navigate.push("/slice-view", "forward");
-        }, 50);
-      }
-    }
+    // // 4
+    // if (
+    //   distance >= 25 &&
+    //   distance <= 32 &&
+    //   direction &&
+    //   direction.y === "up" &&
+    //   angle.degree > 20 &&
+    //   angle.degree < 160
+    // ) {
+    //   setSelected("1R_4");
+    //   if (thumb.pressure > 11.55) {
+    //     hapticsImpactLight();
+    //     setActiveSlice(selected);
+    //     setTimeout(() => {
+    //       // setStageHome(false);
+    //       navigate.push("/slice-view", "forward");
+    //     }, 50);
+    //   }
+    // }
 
     if (
       distance === 50 &&
@@ -182,7 +124,7 @@ const Joystick = ({
     ) {
       setTimeout(() => {
         hapticsImpactLight();
-        navigate.push("/", "forward");
+        navigate.push("/pie-view", "forward");
       }, 200);
     }
   };

@@ -16,6 +16,7 @@ import Spinner from "../components/Spinner";
 import JoystickSlice from "../components/JoystickSlice";
 import * as DynamoAPI from "../utils/ApiQueries";
 import ActiveSliceHeader from "../components/ActiveSliceHeader";
+import Player from "../components/Player";
 // import * as queries from "../graphql/queries";
 
 const config = { mass: 7, tension: 5000, friction: 200 };
@@ -57,7 +58,7 @@ const SliceView = ({
         <IonPage>
           <main>
             <ActiveSliceHeader activePie={activePie} allPies={allPies} />
-
+            <Player />
             <div id="chest">
               <JoystickSlice
                 selected={selected}
