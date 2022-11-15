@@ -85,7 +85,6 @@ const Joystick = ({
     }
   };
   const navigate = useIonRouter();
-  console.log("SELECTED-->", selected);
 
   return (
     <div id="chest">

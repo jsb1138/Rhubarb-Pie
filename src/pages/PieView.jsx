@@ -73,6 +73,7 @@ const PieView = ({
                   setActiveSlice={setActiveSlice}
                   activeSlice={activeSlice}
                   activePie={activePie}
+                  selected={selected}
                 />
               </animated.div>
             ))}
@@ -82,6 +83,8 @@ const PieView = ({
                 setSelected={setSelected}
                 joystickState={joystickState}
                 setJoystickState={setJoystickState}
+                setActiveSlice={setActiveSlice}
+                activeSlice={activeSlice}
               />
             </div>
           </main>

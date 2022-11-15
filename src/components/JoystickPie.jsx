@@ -21,7 +21,7 @@ const Joystick = ({
   setStagePie,
   selected,
   setSelected,
-  setActivePie,
+  setActiveSlice,
 }) => {
   const twiddle = (evt, data) => {
     let thumb = joystickState.data;
@@ -31,47 +31,82 @@ const Joystick = ({
     console.log(joystickState.data.distance);
     let distance = joystickState.data.distance;
     let direction = joystickState.data.direction;
-    console.log("s HOME", stageHome);
-    console.log("s PIE", stagePie);
+    let angle = joystickState.data.angle;
+    // console.log("s HOME", stageHome);
+    // console.log("s PIE", stagePie);
+    // console.log("angle", degree);
+    console.log("info", joystickState.data.angle);
 
-    if (distance >= 5 && distance <= 12 && direction && direction.y === "up") {
-      setSelected("01_launch_2022");
-      if (thumb.pressure > 0.55) {
+    // 1
+    if (
+      distance >= 1 &&
+      distance <= 8 &&
+      direction &&
+      direction.y === "up" &&
+      angle.degree > 20 &&
+      angle.degree < 160
+    ) {
+      setSelected("1R_3");
+      if (thumb.pressure > 11.55) {
         hapticsImpactLight();
-        setActivePie(selected);
+        setActiveSlice(selected);
         setTimeout(() => {
           // setStageHome(false);
           navigate.push("/pie-view", "forward");
         }, 50);
       }
     }
-    if (distance >= 13 && distance <= 24 && direction && direction.y === "up") {
-      setSelected("02_launch_2022");
-      if (thumb.pressure > 0.55) {
+    // 2
+    if (
+      distance >= 9 &&
+      distance <= 16 &&
+      direction &&
+      direction.y === "up" &&
+      angle.degree > 20 &&
+      angle.degree < 160
+    ) {
+      setSelected("1R_1");
+      if (thumb.pressure > 11.55) {
         hapticsImpactLight();
-        setActivePie(selected);
+        setActiveSlice(selected);
         setTimeout(() => {
           // setStageHome(false);
           navigate.push("/pie-view", "forward");
         }, 50);
       }
     }
-    if (distance >= 25 && distance <= 35 && direction && direction.y === "up") {
-      setSelected("03_launch_2022");
-      if (thumb.pressure > 0.55) {
+    // 3
+    if (
+      distance >= 17 &&
+      distance <= 24 &&
+      direction &&
+      direction.y === "up" &&
+      angle.degree > 20 &&
+      angle.degree < 160
+    ) {
+      setSelected("1R_5");
+      if (thumb.pressure > 11.55) {
         hapticsImpactLight();
-        setActivePie(selected);
+        setActiveSlice(selected);
         setTimeout(() => {
           // setStageHome(false);
           navigate.push("/pie-view", "forward");
         }, 50);
       }
     }
-    if (distance >= 36 && distance <= 45 && direction && direction.y === "up") {
-      setSelected("04_launch_2022");
-      if (thumb.pressure > 0.55) {
+    // 4
+    if (
+      distance >= 25 &&
+      distance <= 32 &&
+      direction &&
+      direction.y === "up" &&
+      angle.degree > 20 &&
+      angle.degree < 160
+    ) {
+      setSelected("1R_4");
+      if (thumb.pressure > 11.55) {
         hapticsImpactLight();
-        setActivePie(selected);
+        setActiveSlice(selected);
         setTimeout(() => {
           // setStageHome(false);
           navigate.push("/pie-view", "forward");
@@ -79,7 +114,72 @@ const Joystick = ({
       }
     }
 
-    if (distance === 50 && direction && direction.x == "left") {
+    // 5
+    if (
+      distance >= 33 &&
+      distance <= 40 &&
+      direction &&
+      direction.y === "up" &&
+      angle.degree > 20 &&
+      angle.degree < 160
+    ) {
+      setSelected("1R_2");
+      if (thumb.pressure > 11.55) {
+        hapticsImpactLight();
+        setActiveSlice(selected);
+        setTimeout(() => {
+          // setStageHome(false);
+          navigate.push("/pie-view", "forward");
+        }, 50);
+      }
+    }
+
+    // 6
+    if (
+      distance >= 41 &&
+      distance <= 49 &&
+      direction &&
+      direction.y === "up" &&
+      angle.degree > 20 &&
+      angle.degree < 160
+    ) {
+      setSelected("1R_2");
+      if (thumb.pressure > 11.55) {
+        hapticsImpactLight();
+        setActiveSlice(selected);
+        setTimeout(() => {
+          // setStageHome(false);
+          navigate.push("/pie-view", "forward");
+        }, 50);
+      }
+    }
+
+    // 7
+    if (
+      distance == 50 &&
+      direction &&
+      direction.y === "up" &&
+      angle.degree > 20 &&
+      angle.degree < 160
+    ) {
+      setSelected("1R_2");
+      if (thumb.pressure > 11.55) {
+        hapticsImpactLight();
+        setActiveSlice(selected);
+        setTimeout(() => {
+          // setStageHome(false);
+          navigate.push("/pie-view", "forward");
+        }, 50);
+      }
+    }
+
+    if (
+      distance === 50 &&
+      direction &&
+      direction.x == "left" &&
+      angle.degree > 155 &&
+      angle.degree < 210
+    ) {
       setTimeout(() => {
         hapticsImpactLight();
         navigate.push("/", "forward");
@@ -87,7 +187,6 @@ const Joystick = ({
     }
   };
   const navigate = useIonRouter();
-  console.log("SELECTED-->", selected);
 
   return (
     <div id="chest">

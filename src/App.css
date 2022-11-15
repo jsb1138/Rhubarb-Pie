@@ -242,7 +242,7 @@ header span {
   transition: 0.3s;
 }
 
-.slice-item:hover {
+.slice-item-hover {
   margin: 0 0 16px 0;
   height: 60px;
   width: 92%;
