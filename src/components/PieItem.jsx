@@ -25,7 +25,6 @@ export default function PieItem({ pie, allPies, activePie, setActivePie }) {
           style={linkStyle}
           onClick={() => {
             setActivePie(pie.id);
-            console.log("active pie", pie.id);
           }}
         >
           <div
@@ -48,7 +47,6 @@ export default function PieItem({ pie, allPies, activePie, setActivePie }) {
           style={linkStyle}
           onClick={() => {
             setActivePie(pie.id);
-            console.log("active pie", pie.id);
           }}
         >
           <div

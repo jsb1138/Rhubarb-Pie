@@ -13,8 +13,9 @@ import SliceItem from "../components/SliceItem";
 import PieItem from "../components/PieItem";
 import Header from "../components/Header";
 import Spinner from "../components/Spinner";
-import ActivePieArt from "../components/ActivePieArt";
+import Joystick from "../components/Joystick";
 import * as DynamoAPI from "../utils/ApiQueries";
+import ActivePieHeader from "../components/ActivePieHeader";
 // import * as queries from "../graphql/queries";
 
 const config = { mass: 7, tension: 5000, friction: 200 };
@@ -42,7 +43,7 @@ const Page1 = ({
       {!isLoading ? (
         <IonPage>
           <main>
-            <ActivePieArt activePie={activePie} allPies={allPies} />
+            <ActivePieHeader activePie={activePie} allPies={allPies} />
             {trail.map(({ x, ...otherProps }, i) => (
               <animated.div
                 className="inliner"
@@ -62,12 +63,9 @@ const Page1 = ({
                 />
               </animated.div>
             ))}
-
-            {/* {allSlices
-              .filter((slice) => allPies[0].slices.includes(slice.id))
-              .map((slice) => (
-                <SliceItem key={slice.id} slice={slice} />
-              ))} */}
+            <div id="chest">
+              <Joystick />
+            </div>
           </main>
         </IonPage>
       ) : (

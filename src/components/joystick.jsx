@@ -60,41 +60,38 @@ export default class Joystick extends React.Component {
   };
   render() {
     return (
-        
-            <div id="chest">
-              <ReactNipple
-                options={{
-                  // color: "#ff006f",
-                  color: "#bc5fff",
-                  fadeTime: 500,
-                  position: { top: "50%", left: "50%" },
-                  mode: "static",
-                  
-                }}
-                style={{
-                  // outline: "1px dashed red",
-                  color: "blue",
-                  width: 130,
-                  height: 130,
-                  position: "relative",
-                }}
-                onStart={this.handleEvent}
-                onEnd={this.handleEvent}
-                onMove={this.handleEvent}
-                onDir={this.handleEvent}
-                onPlain={this.handleEvent}
-                onShown={this.handleEvent}
-                onHidden={this.handleEvent}
-                onPressure={this.handleEvent}
-              />
-            </div>
+      <div id="chest">
+        <ReactNipple
+          options={{
+            // color: "#ff006f",
+            color: "#bc5fff",
+            fadeTime: 500,
+            position: { top: "50%", left: "50%" },
+            mode: "static",
+          }}
+          style={{
+            // outline: "1px dashed red",
+            color: "blue",
+            width: 130,
+            height: 130,
+            position: "relative",
+          }}
+          onStart={this.handleEvent}
+          onEnd={this.handleEvent}
+          onMove={this.handleEvent}
+          onDir={this.handleEvent}
+          onPlain={this.handleEvent}
+          onShown={this.handleEvent}
+          onHidden={this.handleEvent}
+          onPressure={this.handleEvent}
+        />
+      </div>
     );
   }
   handleEvent = (evt, data) => {
     let thumb = this.state.data;
     console.log(evt);
     this.setState({ data });
-    console.log("DIRECTION", thumb.direction ? thumb.direction : "NO");
     if (thumb.distance === 50) {
       this.bgColor = "white";
     }
