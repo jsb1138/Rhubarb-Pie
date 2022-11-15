@@ -17,9 +17,9 @@ export default function PieItem({ pie, allPies, activePie, setActivePie }) {
     textDecoration: "none",
   };
 
-  if (isHighlighted(pie)) {
-    return (
-      <>
+  return (
+    <>
+      {isHighlighted(pie) ? (
         <Link
           to="/pie-view"
           style={linkStyle}
@@ -42,11 +42,7 @@ export default function PieItem({ pie, allPies, activePie, setActivePie }) {
             </h1>
           </div>
         </Link>
-      </>
-    );
-  } else {
-    return (
-      <>
+      ) : (
         <Link
           to="/pie-view"
           style={linkStyle}
@@ -68,7 +64,7 @@ export default function PieItem({ pie, allPies, activePie, setActivePie }) {
             </h1>
           </div>
         </Link>
-      </>
-    );
-  }
+      )}
+    </>
+  );
 }

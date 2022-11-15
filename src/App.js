@@ -90,7 +90,11 @@ function App({ signOut, user }) {
             <Page2 />
           </Route>
           <Route path="/pie-view">
-            <PieView allSlices={allSlices} allPies={allPies} />
+            <PieView
+              allSlices={allSlices}
+              allPies={allPies}
+              isLoading={isLoading}
+            />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
