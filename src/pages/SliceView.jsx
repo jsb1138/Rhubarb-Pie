@@ -44,7 +44,9 @@ const SliceView = ({
   currentPath,
   setCurrentPath,
 }) => {
+  const [playButtonSelected, setPlayButtonSelected] = useState(false);
   const [state, setState] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const trail = useTrail(allSlices.length, {
     config,
     from: { opacity: 0, x: 10 },
@@ -69,7 +71,12 @@ const SliceView = ({
           <main>
             <ActiveSliceHeader activePie={activePie} allPies={allPies} />
             <AudioPlayerProvider>
-              <Player file={currentPath} />
+              <Player
+                file={currentPath}
+                playButtonSelected={playButtonSelected}
+                toggle={toggle}
+                setToggle={setToggle}
+              />
             </AudioPlayerProvider>
             <div id="chest">
               <JoystickSlice
@@ -79,6 +86,10 @@ const SliceView = ({
                 setJoystickState={setJoystickState}
                 setActiveSlice={setActiveSlice}
                 activeSlice={activeSlice}
+                playButtonSelected={playButtonSelected}
+                setPlayButtonSelected={setPlayButtonSelected}
+                toggle={toggle}
+                setToggle={setToggle}
               />
             </div>
           </main>

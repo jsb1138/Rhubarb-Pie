@@ -8,9 +8,17 @@ import {
 } from "@ionic/react";
 
 // export default function Player() {
-const AudioPlayer = ({ file }) => {
+const AudioPlayer = ({ file, playButtonSelected, toggle }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFading, setIsFading] = useState(false);
+
+  const toggler = () => {
+    togglePlayPause();
+  };
+
+  useEffect(() => {
+    toggler();
+  }, [toggle]);
 
   const { togglePlayPause, fade } = useAudioPlayer({
     src: file,
@@ -30,12 +38,21 @@ const AudioPlayer = ({ file }) => {
     paddingRight: "-40px",
   };
 
+  console.log("PPPBBSS", playButtonSelected);
   return (
     <>
       <button
-        id={!isPlaying ? "play-btn" : "pause-btn"}
+        className={
+          !isPlaying && !playButtonSelected
+            ? "play-btn"
+            : !isPlaying && playButtonSelected
+            ? "play-btn-selected"
+            : isPlaying && playButtonSelected
+            ? "pause-btn-selected"
+            : "pause-btn"
+        }
         onClick={() => {
-          togglePlayPause();
+          toggler();
           if (!isPlaying) {
             setIsPlaying(true);
           } else {

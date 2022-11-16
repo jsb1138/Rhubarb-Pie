@@ -22,78 +22,81 @@ const Joystick = ({
   selected,
   setSelected,
   setActiveSlice,
+  playButtonSelected,
+  setPlayButtonSelected,
+  toggle,
 }) => {
   const twiddle = (evt, data) => {
     let thumb = joystickState.data;
     // console.log(evt);
     // console.log(data);
     setJoystickState({ data });
-    console.log(joystickState.data.distance);
+    // console.log(joystickState.data.distance);
     let distance = joystickState.data.distance;
     let direction = joystickState.data.direction;
     let angle = joystickState.data.angle;
     // console.log("s HOME", stageHome);
     // console.log("s PIE", stagePie);
     // console.log("angle", degree);
-    console.log("info", joystickState.data.angle);
+    // console.log("info", joystickState.data.angle);
 
     // 1
     if (
-      distance >= 1 &&
-      distance <= 8 &&
+      distance >= 8 &&
+      distance <= 49 &&
       direction &&
       direction.y === "up" &&
       angle.degree > 20 &&
       angle.degree < 160
     ) {
-      setSelected("1R_3");
+      setPlayButtonSelected(true);
       if (thumb.pressure > 11.55) {
         hapticsImpactLight();
-        setActiveSlice(selected);
-        setTimeout(() => {
-          // setStageHome(false);
-          navigate.push("/slice-view", "forward");
-        }, 50);
+        setPlayButtonSelected(false);
+        toggle();
       }
     }
-    // 2
-    if (
-      distance >= 9 &&
-      distance <= 16 &&
-      direction &&
-      direction.y === "up" &&
-      angle.degree > 20 &&
-      angle.degree < 160
-    ) {
-      setSelected("1R_1");
-      if (thumb.pressure > 11.55) {
-        hapticsImpactLight();
-        setActiveSlice(selected);
-        setTimeout(() => {
-          // setStageHome(false);
-          navigate.push("/slice-view", "forward");
-        }, 50);
-      }
+    if (distance <= 7) {
+      setPlayButtonSelected(false);
     }
-    // 3
-    if (
-      distance >= 17 &&
-      distance <= 24 &&
-      direction &&
-      direction.y === "up" &&
-      angle.degree > 20 &&
-      angle.degree < 160
-    ) {
-      setSelected("1R_5");
-      if (thumb.pressure > 11.55) {
-        hapticsImpactLight();
-        setActiveSlice(selected);
-        setTimeout(() => {
-          // setStageHome(false);
-          navigate.push("/slice-view", "forward");
-        }, 50);
-      }
-    }
+    // // 2
+    // if (
+    //   distance >= 9 &&
+    //   distance <= 16 &&
+    //   direction &&
+    //   direction.y === "up" &&
+    //   angle.degree > 20 &&
+    //   angle.degree < 160
+    // ) {
+    //   setSelected("1R_1");
+    //   if (thumb.pressure > 11.55) {
+    //     hapticsImpactLight();
+    //     setActiveSlice(selected);
+    //     setTimeout(() => {
+    //       // setStageHome(false);
+    //       navigate.push("/slice-view", "forward");
+    //     }, 50);
+    //   }
+    // }
+    // // 3
+    // if (
+    //   distance >= 17 &&
+    //   distance <= 24 &&
+    //   direction &&
+    //   direction.y === "up" &&
+    //   angle.degree > 20 &&
+    //   angle.degree < 160
+    // ) {
+    //   setSelected("1R_5");
+    //   if (thumb.pressure > 11.55) {
+    //     hapticsImpactLight();
+    //     setActiveSlice(selected);
+    //     setTimeout(() => {
+    //       // setStageHome(false);
+    //       navigate.push("/slice-view", "forward");
+    //     }, 50);
+    //   }
+    // }
 
     // // 4
     // if (
