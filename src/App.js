@@ -55,6 +55,7 @@ function App({ signOut, user }) {
   // const [stageHome, setStageHome] = useState(true);
   // const [stagePie, setStagePie] = useState(false);
   const [selected, setSelected] = useState("");
+  const [playSelected, setPlaySelected] = useState(false);
 
   useEffect(() => {
     const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices()];
@@ -112,6 +113,8 @@ function App({ signOut, user }) {
               // setStagePie={setStagePie}
               selected={selected}
               setSelected={setSelected}
+              playSelected={playSelected}
+              setPlaySelected={setPlaySelected}
             />
           </Route>
           <Route path="/slice-view">

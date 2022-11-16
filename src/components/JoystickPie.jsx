@@ -22,20 +22,47 @@ const Joystick = ({
   selected,
   setSelected,
   setActiveSlice,
+  playSelected,
+  setPlaySelected,
 }) => {
   const twiddle = (evt, data) => {
     let thumb = joystickState.data;
     // console.log(evt);
     // console.log(data);
     setJoystickState({ data });
-    console.log(joystickState.data.distance);
+    console.log(joystickState.data.direction);
     let distance = joystickState.data.distance;
     let direction = joystickState.data.direction;
     let angle = joystickState.data.angle;
     // console.log("s HOME", stageHome);
     // console.log("s PIE", stagePie);
     // console.log("angle", degree);
-    console.log("info", joystickState.data.angle);
+    console.log("info", angle);
+    console.log("playSel", playSelected);
+
+    // play selector
+    if (
+      // distance >= 1 &&
+      // distance <= 8 &&
+      // direction &&
+      direction.y === "up" &&
+      angle.degree > 0 &&
+      angle.degree < 160 &&
+      angle.radian <= 0.6
+    ) {
+      setPlaySelected(true);
+    }
+    if (
+      // distance >= 1 &&
+      // distance <= 8 &&
+      // direction &&
+      direction.y === "up" &&
+      angle.degree > 0 &&
+      angle.degree < 160 &&
+      angle.radian > 0.601
+    ) {
+      setPlaySelected(false);
+    }
 
     // 1
     if (
@@ -43,7 +70,7 @@ const Joystick = ({
       distance <= 8 &&
       direction &&
       direction.y === "up" &&
-      angle.degree > 20 &&
+      angle.degree > 0 &&
       angle.degree < 160
     ) {
       setSelected("1R_3");
@@ -56,13 +83,14 @@ const Joystick = ({
         }, 50);
       }
     }
+
     // 2
     if (
       distance >= 9 &&
       distance <= 16 &&
       direction &&
       direction.y === "up" &&
-      angle.degree > 20 &&
+      angle.degree > 0 &&
       angle.degree < 160
     ) {
       setSelected("1R_1");
@@ -81,7 +109,7 @@ const Joystick = ({
       distance <= 24 &&
       direction &&
       direction.y === "up" &&
-      angle.degree > 20 &&
+      angle.degree > 0 &&
       angle.degree < 160
     ) {
       setSelected("1R_5");
@@ -100,7 +128,7 @@ const Joystick = ({
       distance <= 32 &&
       direction &&
       direction.y === "up" &&
-      angle.degree > 20 &&
+      angle.degree > 0 &&
       angle.degree < 160
     ) {
       setSelected("1R_4");
@@ -120,7 +148,7 @@ const Joystick = ({
       distance <= 40 &&
       direction &&
       direction.y === "up" &&
-      angle.degree > 20 &&
+      angle.degree > 0 &&
       angle.degree < 160
     ) {
       setSelected("1R_2");
@@ -140,7 +168,7 @@ const Joystick = ({
       distance <= 49 &&
       direction &&
       direction.y === "up" &&
-      angle.degree > 20 &&
+      angle.degree > 0 &&
       angle.degree < 160
     ) {
       setSelected("");
@@ -159,7 +187,7 @@ const Joystick = ({
       distance == 50 &&
       direction &&
       direction.y === "up" &&
-      angle.degree > 20 &&
+      angle.degree > 0 &&
       angle.degree < 160
     ) {
       setSelected("");

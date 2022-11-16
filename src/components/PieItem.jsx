@@ -42,11 +42,9 @@ export default function PieItem({
           <div
             onClick={focuser}
             ref={top}
-            // className="pie-item highlighted"
             className={`highlighted ${
               pie.id == selected ? "highlighted-hover" : ""
             }`}
-            // id="highlighted"
             style={{
               backgroundImage: `url("${pie.art}")`,
               backgroundSize: "130%",

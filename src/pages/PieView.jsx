@@ -38,6 +38,8 @@ const PieView = ({
   setSelected,
   joystickState,
   setJoystickState,
+  playSelected,
+  setPlaySelected,
 }) => {
   const [state, setState] = useState(true);
   const trail = useTrail(allSlices.length, {
@@ -74,6 +76,7 @@ const PieView = ({
                   activeSlice={activeSlice}
                   activePie={activePie}
                   selected={selected}
+                  playSelected={playSelected}
                 />
               </animated.div>
             ))}
@@ -85,6 +88,8 @@ const PieView = ({
                 setJoystickState={setJoystickState}
                 setActiveSlice={setActiveSlice}
                 activeSlice={activeSlice}
+                playSelected={playSelected}
+                setPlaySelected={setPlaySelected}
               />
             </div>
           </main>

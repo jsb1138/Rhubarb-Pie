@@ -7,6 +7,7 @@ export default function SliceItem({
   allSlices,
   selected,
   setActiveSlice,
+  playSelected,
 }) {
   const linkStyle = {
     // backgroundColor: "white",
@@ -31,7 +32,12 @@ export default function SliceItem({
         }`}
       >
         <div>{slice.title}</div>
-        <SimpleButton icon={"►"} />
+        <SimpleButton
+          icon={"►"}
+          selectedBtn={
+            slice.id == selected && playSelected ? "simple-btn-hover" : ""
+          }
+        />
       </div>
     </Link>
   );

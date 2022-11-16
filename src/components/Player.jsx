@@ -28,7 +28,7 @@ const AudioPlayer = ({ file }) => {
   return (
     <>
       <button
-        id="play-btn"
+        id={!isPlaying ? "play-btn" : "pause-btn"}
         onClick={() => {
           togglePlayPause();
           if (!isPlaying) {
@@ -45,7 +45,7 @@ const AudioPlayer = ({ file }) => {
           <div className={!isPlaying ? "countdown1" : "countdown2"}>
             {!isPlaying ? (
               <CountdownCircleTimer
-                duration={60}
+                duration={100}
                 colors={["#1a1835", "#da01f7", "#a30067", "#A30000"]}
                 colorsTime={[10, 6, 4, 0]}
               ></CountdownCircleTimer>
