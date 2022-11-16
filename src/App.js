@@ -56,6 +56,7 @@ function App({ signOut, user }) {
   // const [stagePie, setStagePie] = useState(false);
   const [selected, setSelected] = useState("");
   const [playSelected, setPlaySelected] = useState(false);
+  const [currentPath, setCurrentPath] = useState("");
 
   useEffect(() => {
     const dataFetch = [DynamoAPI.grabPies(), DynamoAPI.grabSlices()];
@@ -115,9 +116,11 @@ function App({ signOut, user }) {
               setSelected={setSelected}
               playSelected={playSelected}
               setPlaySelected={setPlaySelected}
+              currentPath={currentPath}
+              setCurrentPath={setCurrentPath}
             />
           </Route>
-          <Route path="/slice-view">
+          <Route path="/slice-view" forceRefresh={true}>
             <SliceView
               allSlices={allSlices}
               allPies={allPies}
@@ -134,6 +137,8 @@ function App({ signOut, user }) {
               // setStagePie={setStagePie}
               selected={selected}
               setSelected={setSelected}
+              currentPath={currentPath}
+              setCurrentPath={setCurrentPath}
             />
           </Route>
         </IonRouterOutlet>

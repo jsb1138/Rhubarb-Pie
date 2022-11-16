@@ -1,6 +1,11 @@
 import { useAudioPlayer } from "react-use-audio-player";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import {
+  useIonViewWillEnter,
+  useIonViewDidEnter,
+  ionViewWillEnter,
+} from "@ionic/react";
 
 // export default function Player() {
 const AudioPlayer = ({ file }) => {

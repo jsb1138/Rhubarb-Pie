@@ -81,6 +81,14 @@ header span {
 }
 
 .inliner {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inliner-pie {
   width: 92%;
   margin: 0;
   display: flex;

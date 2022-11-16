@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SimpleButton from "./SimpleButton";
 
@@ -8,6 +8,8 @@ export default function SliceItem({
   selected,
   setActiveSlice,
   playSelected,
+  currentPath,
+  setCurrentPath,
 }) {
   const linkStyle = {
     // backgroundColor: "white",
@@ -17,6 +19,12 @@ export default function SliceItem({
     justifyContent: "center",
     textDecoration: "none",
   };
+
+  // let grabSlice = allSlices.filter((slice) => {
+  //   return slice.id === activeSlice;
+  // });
+  // currentSlice = grabSlice[0];
+  // setCurrentPath(currentSlice.path);
 
   return (
     <Link

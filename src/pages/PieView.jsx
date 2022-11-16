@@ -40,6 +40,8 @@ const PieView = ({
   setJoystickState,
   playSelected,
   setPlaySelected,
+  currentPath,
+  setCurrentPath,
 }) => {
   const [state, setState] = useState(true);
   const trail = useTrail(allSlices.length, {
@@ -61,7 +63,7 @@ const PieView = ({
             <ActivePieHeader activePie={activePie} allPies={allPies} />
             {trail.map(({ x, ...otherProps }, i) => (
               <animated.div
-                className="inliner"
+                className="inliner-pie"
                 key={allSlices[i].id}
                 style={{
                   ...otherProps,
@@ -77,6 +79,8 @@ const PieView = ({
                   activePie={activePie}
                   selected={selected}
                   playSelected={playSelected}
+                  currentPath={currentPath}
+                  setCurrentPath={setCurrentPath}
                 />
               </animated.div>
             ))}

@@ -1,5 +1,6 @@
 import "../App.css";
-import { IonButton, IonPage } from "@ionic/react";
+import { IonButton, IonPage, useIonViewWillEnter } from "@ionic/react";
+
 import React, { useEffect, useState } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 
@@ -40,6 +41,8 @@ const SliceView = ({
   setSelected,
   joystickState,
   setJoystickState,
+  currentPath,
+  setCurrentPath,
 }) => {
   const [state, setState] = useState(true);
   const trail = useTrail(allSlices.length, {
@@ -48,10 +51,16 @@ const SliceView = ({
     to: { opacity: state ? 1 : 0, x: state ? 0 : 0 },
   });
 
-  // useEffect(() => {
-  //   setStageHome(false);
-  //   setStagePie(true);
-  // }, []);
+  let grabSlice = allSlices.filter((slice) => {
+    return slice.id === activeSlice;
+  });
+  let currentSlice = grabSlice[0];
+  setCurrentPath(currentSlice.path);
+
+  console.log("act slice", activeSlice);
+  console.log("curr slice", currentSlice);
+  console.log("path-->", currentPath);
+  console.log("ENTERED");
 
   return (
     <>
@@ -60,7 +69,7 @@ const SliceView = ({
           <main>
             <ActiveSliceHeader activePie={activePie} allPies={allPies} />
             <AudioPlayerProvider>
-              <Player file={"http://www.thefarlife.com/saw3.wav"} />
+              <Player file={currentPath} />
             </AudioPlayerProvider>
             <div id="chest">
               <JoystickSlice
