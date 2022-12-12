@@ -20,7 +20,7 @@ Which installs all of the app's dependencies.
 
 Will run the app locally in your default browser.
 
-**Note: the joystick is designed for strictly mobile platforms and will crash a browser instance*
+**Note: the joystick is designed strictly for mobile platforms and will crash a browser instance*
 
 ### `ionic build`
 
