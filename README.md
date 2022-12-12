@@ -16,7 +16,7 @@ In order to run Rhubarb Pie, users can clone this repository and then run:
 
 Which installs all of the app's dependencies.
 
-### `ionic serve`
+### `npm start`
 
 Will run the app locally in your default browser.
 
