@@ -2,6 +2,8 @@
 
 Rhubarb Pie is a modern relaxation, sleep and focus app which features music tailor made for ambient electronic music enthusiasts. While still under active development, Rhubarb Pie features various categories of music carefully composed for specific scenarios and environments such as relaxation on a flight vs relaxation in bed, as well as a number of other scenarios wherein relaxation, sleep, or focus are desired. Rhubarb Pie offers an innovative joystick based user interface which, in an effort to disconnect users from the usual pressures of life, amplifies the perception of separation from everyday experiences by disengaging the typical neural pathways involving mobile phone interaction and engaging users' concentration in an wholly distinct way.
 
+![alt text](http://rhubarbp.ie/rhubarb_mock_hands.png)
+
 **Note: at present there is no sonic content in the library*
 
 ## Getting Started
